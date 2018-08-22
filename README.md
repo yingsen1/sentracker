@@ -1,2 +1,4 @@
 # sentracker
-computer_vision/visual object tracking
+/pretrain # 训练相关
+./ # tracking相关
+
