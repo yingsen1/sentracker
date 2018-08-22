@@ -1,0 +1,6 @@
+*.pyc
+models/
+result/
+result_author/
+result_fig/
+*.jpg
