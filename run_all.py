@@ -20,7 +20,7 @@ for seq in names:
     # Generate sequence config
     img_list, init_bbox, gt, savefig_dir, display, result_path = gen_config(args)
 
-    result_path = './result_author/'+seq+'_pyMDNet(recurrent).mat'
+    result_path = './result_seblock/'+seq+'_SENTracker(seblock).mat'
     # if (seq == 'David' or seq == 'Football1' or seq == 'Freeman3' or seq == 'Freeman4' or seq == 'Diving')==False:
     #     continue
     # if (seq != 'Tiger1'):

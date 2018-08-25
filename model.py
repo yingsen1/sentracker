@@ -19,18 +19,21 @@ def append_params(params, module, prefix):
     :return: None
     '''
     for child in module.children(): # children():返回一个最近子模块的iterator
-        for k, p in child._parameters.iteritems(): # ?._parameters; what is k?
+        for k, p in child._parameters.iteritems(): # ?._parameters; k is weight/bias
             if p is None: continue
 
             if isinstance(child, nn.BatchNorm2d):
                 name = prefix + '_bn_' + k
             else:
-                name = prefix + '_' + k
+                name = prefix + '_' + k   # 这么做是方便set_learnable_params
 
             if name not in params:
                 params[name] = p
             else:
-                raise RuntimeError("Duplicated param name: %s" % (name))
+                # print('%s have already in param, so plus _2' %(name))
+                name = name + '_' + '_2'
+                params[name] = p
+                # raise RuntimeError("Duplicated param name: %s" % (name))
 
 
 class LRN(nn.Module):
@@ -51,12 +54,13 @@ class LRN(nn.Module):
         x = x / ((2. + 0.0001 * x_sumsq) ** 0.75)
         return x
 
-
+# 加入se-block
 class MDNet(nn.Module):
     def __init__(self, model_path=None, K=1):
         super(MDNet, self).__init__()
         self.K = K # fc6分支的数量
-        # 前面5层，con1、con2、con3、fc4、fc5
+
+        # 前面5层，con1、con2、con3、fc4、fc5  # TODO:这里需要将RELU LRN和MAXPOOL2D拆分
         self.layers = nn.Sequential(OrderedDict([
             ('conv1', nn.Sequential(nn.Conv2d(3, 96, kernel_size=7, stride=2),
                                     nn.ReLU(),
@@ -74,6 +78,26 @@ class MDNet(nn.Module):
             ('fc5', nn.Sequential(nn.Dropout(0.5),
                                   nn.Linear(512, 512),
                                   nn.ReLU()))]))
+        ### 增加se-block的部分  # 此处r取16
+        # TODO: 通过这个加入训练参数，但是forward通过子模块拆分
+        self.seblocks = nn.Sequential(OrderedDict([
+            ('conv1_se', nn.Sequential(nn.AvgPool2d(51, stride=1),
+                                       nn.Linear(in_features=96, out_features=6),
+                                       nn.ReLU(),
+                                       nn.Linear(in_features=6, out_features=96),
+                                       nn.Sigmoid())),
+            ('conv2_se', nn.Sequential(nn.AvgPool2d(11, stride=1),
+                                       nn.Linear(in_features=256, out_features=16),
+                                       nn.ReLU(),
+                                       nn.Linear(in_features=16, out_features=256),
+                                       nn.Sigmoid())),
+            ('conv3_se', nn.Sequential(nn.AvgPool2d(3, stride=1),
+                                       nn.Linear(in_features=512, out_features=32),
+                                       nn.ReLU(),
+                                       nn.Linear(in_features=32, out_features=512),
+                                       nn.Sigmoid()))
+        ]))
+
         # fc6,数量根据K来定
         self.branches = nn.ModuleList([nn.Sequential(nn.Dropout(0.5),
                                                      nn.Linear(512, 2)) for _ in range(K)])
@@ -93,6 +117,10 @@ class MDNet(nn.Module):
             append_params(self.params, module, name)
         for k, module in enumerate(self.branches): # branches:ModuleList()
             append_params(self.params, module, 'fc6_%d' % (k))
+
+        # 将se-block模块的参数加入总参数中
+        for name, module in self.seblocks.named_children():
+            append_params(self.params, module, name)
 
     def set_learnable_params(self, layers):
         '''
@@ -129,13 +157,67 @@ class MDNet(nn.Module):
         run = False # the signal to control the forward
 
         # conv1->fc5中运行
-        for name, module in self.layers.named_children():
-            if name == in_layer: # 判断in_layer是否在模型里边，从而控制forward
+        # for name, module in self.layers.named_children():
+        #     if name == in_layer: # 判断in_layer是否在模型里边，从而控制forward
+        #         run = True
+        #     if run:
+        #         x = module(x)
+        #         if name == 'conv3': #更改conv3的形状，相当于flatten()
+        #             x = x.view(x.size(0), -1) # size()[0] is what? maybe Nbatch?
+        #         if name == out_layer:
+        #             return x
+
+        # 对conv1->fc5的改写  # TODO:debug一下这个in_layer
+        for name, module in self.layers.named_children():# {conv1, conv2,...,}迭代器
+            if name == in_layer:
                 run = True
             if run:
-                x = module(x)
-                if name == 'conv3': #更改conv3的形状，相当于flatten()
-                    x = x.view(x.size(0), -1) # size()[0] is what? maybe Nbatch?
+                if name == 'conv1':
+                    x = module[0](x) # conv
+                    original_x = x
+                    x = self.seblocks[0][0](x) # GAP
+                    x = x.view(x.size(0), -1) # flatten
+                    x = self.seblocks[0][1](x) # linear
+                    x = self.seblocks[0][2](x) # RELU
+                    x = self.seblocks[0][3](x) # linear
+                    x = self.seblocks[0][4](x) # Sigmoid
+                    x = x.view(x.size(0), x.size(1), 1, 1)
+                    x = x * original_x
+                    x = module[1](x)
+                    x = module[2](x)
+                    x = module[3](x) # after maxpooling
+                elif name == 'conv2':
+                    x = module[0](x) # conv
+                    original_x = x
+                    x = self.seblocks[1][0](x) # GAP
+                    x = x.view(x.size(0), -1) # flatten
+                    x = self.seblocks[1][1](x) # linear
+                    x = self.seblocks[1][2](x) # RELU
+                    x = self.seblocks[1][3](x) # linear
+                    x = self.seblocks[1][4](x) # Sigmoid
+                    x = x.view(x.size(0), x.size(1), 1, 1)
+                    x = x * original_x
+                    x = module[1](x)
+                    x = module[2](x)
+                    x = module[3](x) # after maxpooling
+                elif name == 'conv3':
+                    x = module[0](x) # conv
+                    original_x = x
+                    x = self.seblocks[2][0](x) # GAP
+                    x = x.view(x.size(0), -1) # flatten
+                    x = self.seblocks[2][1](x) # linear
+                    x = self.seblocks[2][2](x) # RELU
+                    x = self.seblocks[2][3](x) # linear
+                    x = self.seblocks[2][4](x) # Sigmoid
+                    x = x.view(x.size(0), x.size(1), 1, 1)
+                    x = x * original_x
+                    x = module[1](x)
+                    x = x.view(x.size(0), -1)
+                elif name == 'fc4':
+                    x = module(x)
+                elif name == 'fc5':
+                    x = module(x)
+
                 if name == out_layer:
                     return x
 
@@ -157,9 +239,9 @@ class MDNet(nn.Module):
 
         # copy conv weights
         for i in range(3):
-            weight, bias = mat_layers[i * 4]['weights'].item()[0]
+            weight, bias = mat_layers[i * 4]['weights'].item()[0] # 存得是三个conv的参数
             self.layers[i][0].weight.data = torch.from_numpy(np.transpose(weight, (3, 2, 0, 1)))
-            self.layers[i][0].bias.data = torch.from_numpy(bias[:, 0])
+            self.layers[i][0].bias.data = torch.from_numpy(bias[:, 0]) # TODO:因为改变了模型的写法，这里需要改写一下
 
 
 class BinaryLoss(nn.Module):
