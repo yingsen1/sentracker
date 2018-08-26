@@ -92,7 +92,7 @@ def train_mdnet():
             best_prec = cur_prec
             if trainOpt.use_gpu:  # 统一存到CPU上
                 model = model.cpu()
-            states = {'shared_layers': dict(model.layers.state_dict(), **model.seblocks.state_dict())} # 只存这部分的参数
+            states = {'shared_layers_conv&fc': model.layers.state_dict(), 'shared_layers_seblock': model.seblocks.state_dict()} # 只存这部分的参数
             print("Save model to %s"%(trainOpt.model_path))
             torch.save(states, trainOpt.model_path)
             if trainOpt.use_gpu:

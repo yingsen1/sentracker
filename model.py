@@ -229,8 +229,10 @@ class MDNet(nn.Module):
 
     def load_model(self, model_path):
         states = torch.load(model_path)
-        shared_layers = states['shared_layers']
-        self.layers.load_state_dict(shared_layers) # load layers' parameters
+        shared_layers_0 = states['shared_layers_conv&fc'] # sen
+        shared_layers_1 = states['shared_layers_seblock'] #sen
+        self.layers.load_state_dict(shared_layers_0) # load layers' parameters
+        self.seblocks.load_state_dict(shared_layers_1) # load seblocks' parameters
 
     def load_mat_model(self, matfile):
         print(matfile)

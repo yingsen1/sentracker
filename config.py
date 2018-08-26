@@ -15,7 +15,7 @@ class Config():
     use_gpu = True
 
     # about path #添加其他保存的模型的路径
-    model_path = 'models/mdnet_vot-otb_seblock_0825_01.pth'
+    model_path = 'models/mdnet_vot-otb_seblock_0825_03.pth'
     seq_home = '/home/wilsontsang/tracking_benchmark/dataset/OTB'
     save_home = './result_fig' # 保存跟踪结果的路径
     result_home = './result' # 保存跟踪得到的每帧坐标
