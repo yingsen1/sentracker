@@ -12,7 +12,7 @@ class TrainConfig():
 
     # 模型路径
     init_moedel_path = '../models/imagenet-vgg-m.mat' # imagenet预训练模型
-    model_path = '../models/mdnet_vot-otb_seblock_0825_03.pth'
+    model_path = '../models/mdnet_vot-otb_seblock_0828onlyc3_01.pth'
 
     # mini-batch的设置
     batch_frames = 8 # 每个batch只取8帧

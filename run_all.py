@@ -1,7 +1,7 @@
 from run_tracker import *
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"  # use the gpu 0
-tb_100 = open('/home/wilsontsang/tracking_benchmark/dataset/ALL_OTB.txt')  # open the file as a file
+tb_100 = open('/home/wilsontsang/tracking_benchmark/dataset/OTB-benchmark.txt')  # open the file as a file
 seq_list = tb_100.readlines()  # Read until EOF using readline() and return a list containing the lines thus read.
 names = sorted([x.split('\t')[0].strip() for x in seq_list])  # x is each line, strip can remove the white space
 # e.x. x is 'Basketball	IV, OCC, DEF, OPR, BC', after split and strip we get Basketball
@@ -20,7 +20,7 @@ for seq in names:
     # Generate sequence config
     img_list, init_bbox, gt, savefig_dir, display, result_path = gen_config(args)
 
-    result_path = './result_seblock_1/'+seq+'_SENTracker(seblock).mat'
+    result_path = './result_seblock_onlyc3/'+seq+'_SENTracker(seblockonlyc3).mat'
     # if (seq == 'David' or seq == 'Football1' or seq == 'Freeman3' or seq == 'Freeman4' or seq == 'Diving')==False:
     #     continue
     # if (seq != 'Tiger1'):

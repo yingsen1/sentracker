@@ -2,7 +2,120 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77582214-161e-47a3-9404-3dfd03ee8b43" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/config.py" afterPath="$PROJECT_DIR$/config.py" />
+      <change beforePath="$PROJECT_DIR$/model.py" afterPath="$PROJECT_DIR$/model.py" />
+      <change beforePath="$PROJECT_DIR$/pretrain/train_config.py" afterPath="$PROJECT_DIR$/pretrain/train_config.py" />
+      <change beforePath="$PROJECT_DIR$/pretrain/train_online.ipynb" afterPath="$PROJECT_DIR$/pretrain/train_online.ipynb" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Basketball_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Biker_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Bird1_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Bird2_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/BlurBody_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/BlurCar1_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/BlurCar2_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/BlurCar3_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/BlurCar4_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/BlurFace_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/BlurOwl_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Board_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Bolt2_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Bolt_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Box_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Boy_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Car1_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Car24_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Car2_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Car4_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/CarDark_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/CarScale_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/ClifBar_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Coke_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Couple_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Coupon_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Crossing_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Crowds_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Dancer2_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Dancer_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/David2_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/David3_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/David_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Deer_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Diving_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Dog1_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Dog_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Doll_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/DragonBaby_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Dudek_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/FaceOcc1_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/FaceOcc2_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Fish_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/FleetFace_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Football1_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Football_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Freeman1_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Freeman3_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Freeman4_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Girl2_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Girl_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Gym_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Human2_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Human3_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Human4_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Human5_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Human6_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Human7_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Human8_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Human9_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Ironman_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Jogging.1_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Jogging.2_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Jump_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Jumping_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/KiteSurf_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Lemming_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Liquor_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Man_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Matrix_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Mhyang_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/MotorRolling_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/MountainBike_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Panda_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/RedTeam_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Rubik_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Shaking_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Singer1_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Singer2_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Skater2_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Skater_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Skating1_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Skating2.1_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Skating2.2_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Skiing_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Soccer_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Subway_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Surfer_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Suv_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Sylvester_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Tiger1_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Tiger2_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Toy_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Trans_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Trellis_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Twinnings_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Vase_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Walking2_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Walking_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock/Woman_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock_1/Basketball_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock_1/Biker_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock_1/Bird1_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock_1/Bird2_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock_1/BlurBody_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock_1/BlurCar1_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock_1/BlurCar2_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock_1/BlurCar3_SENTracker(seblock).mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/result_seblock_1/BlurCar4_SENTracker(seblock).mat" afterPath="" />
       <change beforePath="$PROJECT_DIR$/run_all.py" afterPath="$PROJECT_DIR$/run_all.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,8 +149,8 @@
       <file leaf-file-name="train_sentrack.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pretrain/train_sentrack.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="851">
-              <caret line="96" column="48" lean-forward="false" selection-start-line="96" selection-start-column="48" selection-end-line="96" selection-end-column="48" />
+            <state relative-caret-position="298">
+              <caret line="51" column="18" lean-forward="false" selection-start-line="51" selection-start-column="10" selection-end-line="51" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -46,8 +159,8 @@
       <file leaf-file-name="train_config.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pretrain/train_config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="26" column="18" lean-forward="false" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+            <state relative-caret-position="278">
+              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -56,7 +169,7 @@
       <file leaf-file-name="run_tracker.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/run_tracker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3487">
+            <state relative-caret-position="6408">
               <caret line="376" column="42" lean-forward="false" selection-start-line="376" selection-start-column="42" selection-end-line="376" selection-end-column="42" />
               <folding />
             </state>
@@ -77,7 +190,7 @@
         <entry file="file://$PROJECT_DIR$/config.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="360">
-              <caret line="20" column="37" lean-forward="false" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+              <caret line="20" column="28" lean-forward="false" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -106,8 +219,8 @@
       <file leaf-file-name="run_all.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/run_all.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="17" column="23" lean-forward="true" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+            <state relative-caret-position="648">
+              <caret line="36" column="25" lean-forward="false" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -116,9 +229,18 @@
       <file leaf-file-name="model.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3852">
-              <caret line="222" column="0" lean-forward="false" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
+            <state relative-caret-position="534">
+              <caret line="198" column="55" lean-forward="false" selection-start-line="198" selection-start-column="55" selection-end-line="198" selection-end-column="55" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="train_online.ipynb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pretrain/train_online.ipynb">
+          <provider selected="true" editor-type-id="ipnb-editor">
+            <state>
+              <selected id="0" />
             </state>
           </provider>
         </entry>
@@ -143,6 +265,7 @@
       <find>load</find>
       <find>se</find>
       <find>save</find>
+      <find>set_lear</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -166,9 +289,9 @@
         <option value="$PROJECT_DIR$/test_model.py" />
         <option value="$PROJECT_DIR$/pretrain/train_test.py" />
         <option value="$PROJECT_DIR$/pretrain/train_sentrack.py" />
-        <option value="$PROJECT_DIR$/model.py" />
         <option value="$PROJECT_DIR$/pretrain/train_config.py" />
         <option value="$PROJECT_DIR$/config.py" />
+        <option value="$PROJECT_DIR$/model.py" />
         <option value="$PROJECT_DIR$/run_all.py" />
       </list>
     </option>
@@ -202,6 +325,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -223,7 +347,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -401,8 +524,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1080" y="263" width="1920" height="1043" extended-state="6" />
-    <editor active="true" />
+    <frame x="1143" y="298" width="1922" height="1116" extended-state="6" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32968238" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.508547" order="7" side_tool="true" content_ui="tabs" />
@@ -411,13 +533,13 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297491" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30186608" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15918803" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16239317" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959402" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959402" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32930845" sideWeight="0.491453" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.491453" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -443,7 +565,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/model.py</url>
-          <line>231</line>
+          <line>223</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
@@ -728,7 +850,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -748,41 +869,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pretrain/train_online.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/run_tracker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3487">
+        <state relative-caret-position="6408">
           <caret line="376" column="42" lean-forward="false" selection-start-line="376" selection-start-column="42" selection-end-line="376" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pretrain/train_sentrack.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="851">
-          <caret line="96" column="48" lean-forward="false" selection-start-line="96" selection-start-column="48" selection-end-line="96" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pretrain/train_config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="26" column="18" lean-forward="false" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="37" lean-forward="false" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
           <folding />
         </state>
       </provider>
@@ -803,18 +893,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pretrain/train_online.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pretrain/train_sentrack.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="51" column="18" lean-forward="false" selection-start-line="51" selection-start-column="10" selection-end-line="51" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pretrain/train_config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3852">
-          <caret line="222" column="0" lean-forward="false" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
+        <state relative-caret-position="534">
+          <caret line="198" column="55" lean-forward="false" selection-start-line="198" selection-start-column="55" selection-end-line="198" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="28" lean-forward="false" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/run_all.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="23" lean-forward="true" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+        <state relative-caret-position="648">
+          <caret line="36" column="25" lean-forward="false" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
           <folding />
         </state>
       </provider>

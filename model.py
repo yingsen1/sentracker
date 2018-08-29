@@ -81,16 +81,6 @@ class MDNet(nn.Module):
         ### 增加se-block的部分  # 此处r取16
         # TODO: 通过这个加入训练参数，但是forward通过子模块拆分
         self.seblocks = nn.Sequential(OrderedDict([
-            ('conv1_se', nn.Sequential(nn.AvgPool2d(51, stride=1),
-                                       nn.Linear(in_features=96, out_features=6),
-                                       nn.ReLU(),
-                                       nn.Linear(in_features=6, out_features=96),
-                                       nn.Sigmoid())),
-            ('conv2_se', nn.Sequential(nn.AvgPool2d(11, stride=1),
-                                       nn.Linear(in_features=256, out_features=16),
-                                       nn.ReLU(),
-                                       nn.Linear(in_features=16, out_features=256),
-                                       nn.Sigmoid())),
             ('conv3_se', nn.Sequential(nn.AvgPool2d(3, stride=1),
                                        nn.Linear(in_features=512, out_features=32),
                                        nn.ReLU(),
@@ -173,6 +163,36 @@ class MDNet(nn.Module):
                 run = True
             if run:
                 if name == 'conv1':
+                    x = module(x)
+                    # x = module[0](x) # conv
+                    # original_x = x
+                    # x = self.seblocks[0][0](x) # GAP
+                    # x = x.view(x.size(0), -1) # flatten
+                    # x = self.seblocks[0][1](x) # linear
+                    # x = self.seblocks[0][2](x) # RELU
+                    # x = self.seblocks[0][3](x) # linear
+                    # x = self.seblocks[0][4](x) # Sigmoid
+                    # x = x.view(x.size(0), x.size(1), 1, 1)
+                    # x = x * original_x
+                    # x = module[1](x)
+                    # x = module[2](x)
+                    # x = module[3](x) # after maxpooling
+                elif name == 'conv2':
+                    x = module(x)
+                    # x = module[0](x) # conv
+                    # original_x = x
+                    # x = self.seblocks[1][0](x) # GAP
+                    # x = x.view(x.size(0), -1) # flatten
+                    # x = self.seblocks[1][1](x) # linear
+                    # x = self.seblocks[1][2](x) # RELU
+                    # x = self.seblocks[1][3](x) # linear
+                    # x = self.seblocks[1][4](x) # Sigmoid
+                    # x = x.view(x.size(0), x.size(1), 1, 1)
+                    # x = x * original_x
+                    # x = module[1](x)
+                    # x = module[2](x)
+                    # x = module[3](x) # after maxpooling
+                elif name == 'conv3':
                     x = module[0](x) # conv
                     original_x = x
                     x = self.seblocks[0][0](x) # GAP
@@ -181,34 +201,6 @@ class MDNet(nn.Module):
                     x = self.seblocks[0][2](x) # RELU
                     x = self.seblocks[0][3](x) # linear
                     x = self.seblocks[0][4](x) # Sigmoid
-                    x = x.view(x.size(0), x.size(1), 1, 1)
-                    x = x * original_x
-                    x = module[1](x)
-                    x = module[2](x)
-                    x = module[3](x) # after maxpooling
-                elif name == 'conv2':
-                    x = module[0](x) # conv
-                    original_x = x
-                    x = self.seblocks[1][0](x) # GAP
-                    x = x.view(x.size(0), -1) # flatten
-                    x = self.seblocks[1][1](x) # linear
-                    x = self.seblocks[1][2](x) # RELU
-                    x = self.seblocks[1][3](x) # linear
-                    x = self.seblocks[1][4](x) # Sigmoid
-                    x = x.view(x.size(0), x.size(1), 1, 1)
-                    x = x * original_x
-                    x = module[1](x)
-                    x = module[2](x)
-                    x = module[3](x) # after maxpooling
-                elif name == 'conv3':
-                    x = module[0](x) # conv
-                    original_x = x
-                    x = self.seblocks[2][0](x) # GAP
-                    x = x.view(x.size(0), -1) # flatten
-                    x = self.seblocks[2][1](x) # linear
-                    x = self.seblocks[2][2](x) # RELU
-                    x = self.seblocks[2][3](x) # linear
-                    x = self.seblocks[2][4](x) # Sigmoid
                     x = x.view(x.size(0), x.size(1), 1, 1)
                     x = x * original_x
                     x = module[1](x)
