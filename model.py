@@ -58,6 +58,7 @@ class LRN(nn.Module):
 class MDNet(nn.Module):
     def __init__(self, model_path=None, K=1):
         super(MDNet, self).__init__()
+
         self.K = K # fc6分支的数量
 
         # 前面5层，con1、con2、con3、fc4、fc5  # TODO:这里需要将RELU LRN和MAXPOOL2D拆分
@@ -82,9 +83,9 @@ class MDNet(nn.Module):
         # TODO: 通过这个加入训练参数，但是forward通过子模块拆分
         self.seblocks = nn.Sequential(OrderedDict([
             ('conv3_se', nn.Sequential(nn.AvgPool2d(3, stride=1),
-                                       nn.Linear(in_features=512, out_features=32),
+                                       nn.Linear(in_features=512, out_features=16),
                                        nn.ReLU(),
-                                       nn.Linear(in_features=32, out_features=512),
+                                       nn.Linear(in_features=16, out_features=512),
                                        nn.Sigmoid()))
         ]))
 
