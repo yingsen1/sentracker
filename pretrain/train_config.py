@@ -12,7 +12,7 @@ class TrainConfig():
 
     # 模型路径
     init_moedel_path = '../models/imagenet-vgg-m.mat' # imagenet预训练模型
-    model_path = '../models/mdnet_vot-otb_seblock_0831onlyc3gm_01.pth'
+    model_path = '../models/mdnet_vot-otb_seblock_0903c3gm_01.pth'
 
     # mini-batch的设置
     batch_frames = 8 # 每个batch只取8帧
@@ -32,7 +32,7 @@ class TrainConfig():
     w_decay = 5e-4
     momentum = 0.9
     grad_clip = 10
-    ft_layers = ['conv', 'fc'] #TODO：注意这里
+    ft_layers = ['conv', 'fc', 'mask'] #TODO：注意这里
     lr_mult = {'fc': 10}
     n_cycles = 100 # 50
 

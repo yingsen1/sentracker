@@ -54,11 +54,23 @@ class LRN(nn.Module):
         x = x / ((2. + 0.0001 * x_sumsq) ** 0.75)
         return x
 
+# 自定义Mask2d层：输入h_size, w_size, 计算为2d图
+class Mask2d(nn.Module):
+    def __init__(self, h_size, w_size):
+        super(Mask2d, self).__init__()
+        self.weight = nn.Parameter(torch.ones(h_size, w_size))
+
+    def forward(self, x):
+        x = x * self.weight  # mask2d图，对应元素相乘。每个channel应用相同的weights
+        return x
+
+
+
+
 # 加入se-block
 class MDNet(nn.Module):
     def __init__(self, model_path=None, K=1):
         super(MDNet, self).__init__()
-
         self.K = K # fc6分支的数量
 
         # 前面5层，con1、con2、con3、fc4、fc5  # TODO:这里需要将RELU LRN和MAXPOOL2D拆分
@@ -89,6 +101,12 @@ class MDNet(nn.Module):
                                        nn.Sigmoid()))
         ]))
 
+        # 增加的mask部分，初始化为1
+        self.mask = nn.Sequential(OrderedDict([
+            ('mask', nn.Sequential(Mask2d(3, 3)
+                                   ))
+        ]))
+
         # fc6,数量根据K来定
         self.branches = nn.ModuleList([nn.Sequential(nn.Dropout(0.5),
                                                      nn.Linear(512, 2)) for _ in range(K)])
@@ -113,13 +131,20 @@ class MDNet(nn.Module):
         for name, module in self.seblocks.named_children():
             append_params(self.params, module, name)
 
+        # 将mask模块的参数加入总参数中
+        for name, module in self.mask.named_children():
+            append_params(self.params, module, name)
+
+
     def set_learnable_params(self, layers):
         '''
         控制需要学习的参数
         :param layers: 设置参数为可学习的层
         :return: None
         '''
-        for k, p in self.params.iteritems(): # what is k??
+        for k, p in self.params.iteritems(): # k是参数的名字
+            if k.startswith('mask'):
+                print('stop')
             if any([k.startswith(l) for l in layers]): #any():所以为True则为True，反之
                 p.requires_grad = True
             else:
@@ -154,7 +179,7 @@ class MDNet(nn.Module):
         #     if run:
         #         x = module(x)
         #         if name == 'conv3': #更改conv3的形状，相当于flatten()
-        #             x = x.view(x.size(0), -1) # size()[0] is what? maybe Nbatch?
+        #             x = x.view(x.size(0), -1) # size()[0] is Nbatch?
         #         if name == out_layer:
         #             return x
 
@@ -195,6 +220,7 @@ class MDNet(nn.Module):
                     # x = module[3](x) # after maxpooling
                 elif name == 'conv3':
                     x = module[0](x) # conv
+                    # 这里为seblock运算
                     original_x = x
                     x = self.seblocks[0][0](x) # GAP
                     x = x.view(x.size(0), -1) # flatten
@@ -205,7 +231,10 @@ class MDNet(nn.Module):
                     x = x.view(x.size(0), x.size(1), 1, 1)
                     x = x * original_x
                     x = module[1](x)
+                    # 这里为mask运算
+                    x = self.mask(x)
                     x = x.view(x.size(0), -1)
+
                 elif name == 'fc4':
                     x = module(x)
                 elif name == 'fc5':
@@ -224,8 +253,10 @@ class MDNet(nn.Module):
         states = torch.load(model_path)
         shared_layers_0 = states['shared_layers_conv&fc'] # sen
         shared_layers_1 = states['shared_layers_seblock'] #sen
+        shared_layers_2 = states['shared_layers_mask'] # sen
         self.layers.load_state_dict(shared_layers_0) # load layers' parameters
         self.seblocks.load_state_dict(shared_layers_1) # load seblocks' parameters
+        self.mask.load_state_dict(shared_layers_2) # load mask parameters
 
     def load_mat_model(self, matfile):
         print(matfile)

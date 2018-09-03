@@ -20,7 +20,7 @@ for seq in names:
     # Generate sequence config
     img_list, init_bbox, gt, savefig_dir, display, result_path = gen_config(args)
 
-    result_path = './result_seblock_onlyc3gm/'+seq+'_SENTracker(seblockonlyc3gm).mat'
+    result_path = './result_seblock_c3gm/'+seq+'_SENTracker(seblockc3gm).mat'
     # if (seq == 'David' or seq == 'Football1' or seq == 'Freeman3' or seq == 'Freeman4' or seq == 'Diving')==False:
     #     continue
     # if (seq != 'Tiger1'):
